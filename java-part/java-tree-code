@@ -1,0 +1,33 @@
+ private static int getBlockMaxVal(int randomNum){
+    	int blockMaxVal =-1;
+    	List<Integer> blockList = AwardPoolInfo.getBlockArray();
+    	if(blockList!=null && blockList.size()>0){
+    		int blockSize = blockList.size();
+
+    		//超过中奖最大值
+    		if(randomNum>blockList.get(blockSize-1)){
+    			return -1;
+    		}
+
+    		int start = 0;
+    		int end = blockSize -1;
+    		int middle =0;
+    		while(start<=end){
+    			middle = (start+end)/2;
+    			if(randomNum<blockList.get(middle)){
+    				end = middle-1;
+    				if(randomNum>=blockList.get(middle-1)){
+    					return blockList.get(middle);
+    				}
+    			}else if(randomNum>blockList.get(middle)){
+    				start = middle+1;
+    			    if(randomNum<=blockList.get(middle+1)){
+    			    	return blockList.get(middle+1);
+    			    }
+    			}else{
+    				return blockList.get(middle);
+    			}
+    		}
+    	}
+    	return -1;
+    }
