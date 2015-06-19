@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>JSONP测试</title>
+    <script src="http://cdn.bootcss.com/jquery/1.11.3/jquery.min.js" ></script>
+    <script>
+        /*
+        $.ajax({
+            dataType:'jsonp',
+            data:'id=10',
+            jsonp:'jsonp_callback',
+            url:'http://localhost:9000/jsonptest',
+            success:function(data){
+                console.log(data);
+                alert(data);
+            }
+            });
+
+
+        //获取当前用户的ip  不过是借助第三方的服务 速度比较慢
+        jQuery(function($){
+            var url = 'http://chaxun.1616.net/s.php?type=ip&output=json&callback=?&_='+Math.random();
+            $.getJSON(url, function(data){
+                alert(data.Ip);
+            });
+        });
+        */
+
+        //获取当前网页的url参数
+
+        function getUrlQueryString(){
+            var url = location.search;
+            if(url!=null && url.indexOf("?")!=-1){
+                if(url.indexOf("from=timeline")){
+                    alert(url.indexOf("from=timeline"));
+                    alert(url);
+                }
+            }
+        }
+
+        getUrlQueryString();
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
