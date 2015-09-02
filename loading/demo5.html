@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>演示：使用fakeLoader.js创建页面加载动画</title>
+<meta name="keywords" content="Javascript" />
+<meta name="description" content="Helloweba文章结合实例演示HTML5、CSS3、jquery、PHP等WEB技术应用。" />
+<style>
+.demo{width:300px; margin:60px auto 10px auto;text-align:center}
+@media only screen and (min-width: 420px) {
+	.demo{width:500px; margin:60px auto 10px auto}
+}
+.demo a{padding:4px 10px; margin:10px; width:80px; height:24px; line-height:24px; border:1px solid #d3d3d3; background:#f7f7f7; display:inline-block}
+.demo a.cur{background:#360; color:#fff}
+.result{margin-top:40px; padding-bottom:20px; color:#999}
+</style>
+<link rel="stylesheet" href="css/fakeLoader.css">
+</head>
+
+<body>
+<div class="fakeloader"></div>
+
+<div id="main">
+	<h2 class="top_title"><a href="http://www.helloweba.com/view-blog-310.html">使用fakeLoader.js创建页面加载动画</a></h2>
+	
+	<div class="demo">
+			<a href="index.html">Spinner1</a>
+            <a href="demo2.html">Spinner2</a>
+			<a href="demo3.html">Spinner3</a>
+			<a href="demo4.html">Spinner4</a>
+			<a href="demo5.html" class="cur">Spinner5</a>
+			<a href="demo6.html">Spinner6</a>
+			<a href="demo7.html">Spinner7</a>
+            <a href="demo8.html">自定义图片</a>
+			<div class="result">DEMO5 页面内容已加载完毕。</div>
+	</div>
+</div>
+
+
+<script type="text/javascript" src="http://libs.useso.com/js/jquery/1.7.2/jquery.min.js"></script>
+
+<script src="js/fakeLoader.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+    $(".fakeloader").fakeLoader({
+        timeToHide:2200,
+        bgColor:"#e67e22",
+        spinner:"spinner5"
+    });
+});
+</script>
+</body>
+</html>

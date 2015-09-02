@@ -1,4 +1,4 @@
-__author__ = 'Administrator'
+__author__ = 'mirs'
 #coding:utf-8
 
 def func1():
@@ -15,7 +15,7 @@ def func1():
 
 
     #整数运算永远是精确的   永远是整数 只会舍
-    #浮点数 运算应该是精确地
+    #浮点数 运算应该是精确的
 
     print 10/3
     print 5/3
@@ -29,20 +29,18 @@ def func1():
     #空值用None表示
 
     #变量
-    a = 1;
-    answer = True;
+    a = 1
+    answer = True
 
     #常量 Python中 通常用全部大写的变量表示常量
-
     PI = 3.14159265359
-    #整数除法永远是整数，即使除不尽 要做精确地除法，只要把其中一个整数换成浮点数就可以
+    #整数除法永远是整数，即使除不尽 如果要做精确地除法，只要把其中一个整数换成浮点数就可以
 
     #字符串和编码
 
     #python字符串 。Python 提供了ord()和chr()函数，可以把字母和对应的数字相互转换。
 
-    print ord('A')
-
+    print ord('A') #将字幕转换为数字
     print chr(65)
 
     print u'中文'
@@ -53,14 +51,19 @@ def func1():
 
     #格式化 %d %f %s %x
     print 'Hello,%s'%'world！'
-    print 'Hi, %s, you have $%d.'%('Mirs',10000)
+    print 'Hi, %s, you have $%d.'%('Mirs', 10000)
     #格式化整数和浮点数还可以指定是否补0 和整数与小数的位数
-    print '%2d-%03d'%(3,1) #位数数字指定，补0需要加0
-    print '%.2f'%3.1415126
+    print '%2d-%03d'%(3,1) #位数数字指定，补0需要在前面加0
+    print '%.2f'%3.1415126 #指定小数的位数
+
+    print '%%'#%% 表示一个普通的百分号
 
 #list  列表  有序集合  可以随时添加和删除其中的元素
+#-1 获取最后一个元素
+#append('DDD') 追加元素到末尾
+#insert(1,mirs) // 将元素插入到指定的位置   索引从0开始  会将元素自动向后挤
 def func_list():
-    classmates = ['Michael','Bob','Tracy']
+    classmates = ['Michael', 'Bob', 'Tracy']
 
     print classmates
     print len(classmates)
@@ -70,7 +73,7 @@ def func_list():
     #从末尾删除 pop  classmates.pop()
     #删除 指定位置的元素 pop(i)  i是索引位置
 
-    #替换可以 直接覆盖
+    #替换可以通过赋值的方式直接覆盖
     #list里面数据类型也可以不同，比如
     L = ['Apple', 123, True]
 
@@ -80,6 +83,13 @@ def func_list():
     print s[2][1]
 
 
+#元组
+'''
+    元组一旦初始化就不能修改
+    能用tuple代替list 就尽量使用tuple
+    Python内置集合
+
+'''
 
 def func_tuple():
     #元组tuple 。tuple 和list 非常类似，但是tuple 一旦初始化就不能修改，
@@ -87,7 +97,7 @@ def func_tuple():
     ts = (1, 2)
     #定义一个空的tuple
     t = ()
-    tt = (1,)
+    tt = (1,) #定义一个元素的tuple 需要加个逗号，否则会有 括号歧义。
 
     #可变的tuple  tuple 的每个元素，指向永远不变,如果要创建一个内容也不变的list，必须保证tuple
     #的每个元素都不变。
@@ -139,7 +149,7 @@ def func_if_for_while():
     #所以for x in ... 循环就是把每个元素代入变量x ，然后执行缩进块的语句。
 
     #幸好Python 提供一个range()函数，可以生成一个整数序列，
-    #比如range(5)生成的序列是从0 开始小于5 的整数：
+    #比如range(5)生成的序列是从0 开始小于5 的整数：[0, 1, 2, 3, 4]
     sum = 0
     for name in range(101):
         sum = sum + name
@@ -165,6 +175,8 @@ def func_if_for_while():
 # raw_input 永远以字符窜的形式返回  数字类型 可以用 int()方法进行转换
 
 
+
+#key 必须是不可变对象
 def func_dict():
     #dict
     #Python 内置了字典：dict 的支持，dict 全称dictionary，在其他语言中也称为map，使用键-值（key-value）存储，具
@@ -181,8 +193,9 @@ def func_dict():
 
     #如果值不存在  会报错
 
-    #解决值不存在的问题有两种方式 1. 使用in 来判断  2 get方法  不存在时返回None 或自己制定value
-
+    #解决值不存在的问题有两种方式 1. 使用in 来判断  2 get方法  不存在时返回None 或自己指定value
+    print 'Liming' in d
+    print d.get('Liming1', -1)
     #d = {'Mirs': 100, 'Liming': 75, 'Tracy': 85}
 
     #print d['Hehe'] 会报错
@@ -251,14 +264,23 @@ def nop():
 
 #返回多个值   Python 函数返回的仍然是单一值
 #Python 的函数返回多值其实就是返回一个tuple，但写起来更方便。
+def returnMulti(x, y):
+    return 10*x, 10*y
+
+x, y = returnMulti(100, 20)
+r = returnMulti(10, 20)# r就是一个元组
+
+
+
+
 
 #函数的参数 默认参数
 
 def power(x, n=2):
     s = 1
-    while  n>0:
-        n = n-1
-        s = s*x
+    while n > 0:
+         n = n-1
+         s = s*x
 
     return s
 
@@ -266,7 +288,7 @@ def power(x, n=2):
 print power(5)
 print power(5, 3)
 
-#默认参数不要使用可变对象  这样在多次调用时，如果未指定 将会出现不正确的情况,指针指定的对象地址是固定的
+#默认参数不要使用可变对象、这样在多次调用时，如果未指定 将会出现不正确的情况,指针指定的对象地址是固定的
 
 
 #可变参数
@@ -279,12 +301,38 @@ def calc(*numbers):
 
     return sum
 
-
+#但是调用的时候需要先组装一个 list 或 tuple
+#print calc(*[1, 2, 3])
 #print calc()
+#print calc(1,2,3,4,5) #可变参数调用更为方便。
 #定义可变参数和定义list 或tuple 参数相比，仅仅在参数前面加了一个* 号。在函数内部，参数numbers 接收到的是一
 #个tuple，因此，函数代码完全不变。但是，调用该函数时，可以传入任意个参数，包括0 个参数：
 
 #如果已经存在一个list 或者 tuple
+
+
+#------关键字参数----------------------------------------------------------------------------
+#关键字参数允许你传入0 个或任意个含参数名的参数，这些关键字参数在函数内部自动组装为一个dict。
+def person(name, age, **kw):
+    print 'name:', name, ',age:', age, 'other:', kw
+
+person('mirs', 20,city='beijing', town='haidian')
+kw = {'city': 'Beijing', 'job': 'Engineer'}
+person('mirs', 20, **kw)
+
+#参数组合
+#参数定义的顺序必须是：必选参数、默认参数、可变参数和关键字参数。
+
+def funcParamZuhe(a, b, c=0, *www, **kw):
+    print www, kw
+
+funcParamZuhe(2, 3, 2, 2, 3, c1=3, d=9)#占位  默认参数
+funcParamZuhe(2, 3, c1=3, d=9)#占位  前提是不要让这些参数都有歧义就可以。
+
+#*args 是可变参数，args接收的是一个tuple
+#**kw是关键字参数，kw接收的是一个dict
+
+#------------------------------------------------------------------------------
 
 
 
